@@ -8,9 +8,10 @@ Activities are stored in the database and represented to user in the the weekly 
 
 # Download
 Full [relase](https://github.com/borbit-m/ActivityLog/releases) history of the application.<br /><br />
-Or already pre-compiled executables for your platform:<br />
-* [Download for Windows](https://github.com/borbit-m/ActivityLog/releases/download/v0.1.1/ActivityLog-Win_executable.zip) the latest executable version of Activity Log.
-* [Download for Mac OS]() the latest executable version of Activity Log.
+Or already pre-compiled the latest executable version of Activity Log for your platform:<br />
+* [Download for Windows](https://github.com/borbit-m/ActivityLog/releases/download/v0.1.1/ActivityLog-Win_executable.zip)
+* [Download for Mac OS]()
+* [Download for Linux]()
 
 
 
