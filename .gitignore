@@ -2,3 +2,7 @@ __pycache__
 .venv
 Query.sql
 launch.json
+ActivityLog.exe
+src/dist
+src/build
+src/ActivityLog.spec
