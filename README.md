@@ -7,7 +7,7 @@ Activities are stored in the database and represented to user in the the weekly 
 
 
 # Download
-You can [download]() the latest executable version of Activity Log.
+You can [download](bin/Win-ActivityLog.zip) the latest executable version of Activity Log.
 
 
 
