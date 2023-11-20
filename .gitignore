@@ -6,7 +6,3 @@ ActivityLog.exe
 src/dist
 src/build
 src/ActivityLog.spec
-
-
-# Dont Ignore this
-!bin
