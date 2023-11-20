@@ -7,13 +7,19 @@ Activities are stored in the database and represented to user in the the weekly 
 
 
 # Download
-You can [download]() the latest executable version of Activity Log.
+Full [relase](https://github.com/borbit-m/ActivityLog/releases) history of the application.<br /><br />
+Or already pre-compiled the latest executable version of Activity Log for your platform:<br />
+* [Download for Windows](https://github.com/borbit-m/ActivityLog/releases/download/v0.1.1/ActivityLog-Win_executable.zip)
+* [Download for Mac OS]()
+* [Download for Linux]()
+
 
 
 
 ## Requirements
 
-In order to use application you need to install Python 3 on your computer.
+<p>In order to use application you can simply download the executable for your platform and run the application.<br>
+If you want to run/edit source code you will need to install Python 3 on your computer and all the packages used in the application (defined in "requirements.txt").</p>
 
 Python can be downloaded from official website for [Windows](), [MacOS](), [Linux]().
 
