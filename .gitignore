@@ -3,6 +3,7 @@ __pycache__
 Query.sql
 launch.json
 ActivityLog.exe
+data/ActivityLog.db
 src/dist
 src/build
 src/ActivityLog.spec

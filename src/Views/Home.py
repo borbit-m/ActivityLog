@@ -6,26 +6,46 @@ from datetime import datetime, date, timedelta
 
 ###### Functions ######    
 def rev_click(e):
+    global actYear
     global weekNumberSelected
     weekNumberSelected -= 1
+    if (weekNumberSelected <= 0):
+        actYear -= 1
+        weekNumberSelected = date(actYear,12,28).isocalendar().week
+    
     e.page.controls[1] = week_activities(week_start_date(weekNumberSelected))
-    monthButton.content = update_month(weekNumberSelected)
+    update_month(weekNumberSelected)
+    #yearButton.content.value = str(actYear)
     e.page.update()
+
+    print(actYear)
+    print(weekNumberSelected)
+    
     
 
 def fwd_click(e):
+    global actYear
     global weekNumberSelected
     weekNumberSelected += 1
+    if (weekNumberSelected > date(actYear,12,28).isocalendar().week):
+        actYear +=1
+        weekNumberSelected = 1
     e.page.controls[1] = week_activities(week_start_date(weekNumberSelected))
-    monthButton.content = update_month(weekNumberSelected)
+    update_month(weekNumberSelected)
+    #yearButton.content.value = str(actYear)
     e.page.update()
+
+    print(actYear)
+    print(weekNumberSelected)
 
 
 def month_change(e):
+    global actYear
+    global weekNumberSelected
     monthNum = datetime.strptime(e.control.text, '%B').month
-    weekNumberSelected = date(2023,monthNum,1).isocalendar().week
+    weekNumberSelected = date(actYear,monthNum,1).isocalendar().week
     e.page.controls[1] = week_activities(week_start_date(weekNumberSelected))
-    monthButton.content = update_month(weekNumberSelected)
+    update_month(weekNumberSelected)
     e.page.update()
 
 
@@ -33,7 +53,7 @@ def today_button_click(e):
     global weekNumberSelected
     weekNumberSelected = date.today().isocalendar().week
     e.page.controls[1] = week_activities(week_start_date(weekNumberSelected))
-    monthButton.content = update_month(weekNumberSelected)
+    update_month(weekNumberSelected)
     e.page.update()
     
 
@@ -234,17 +254,21 @@ def week_activities(startDate: date):
 
 
 def week_start_date(weekNumber):
-    yearNow=date.today().year
-    yearBeginWeekday=date(yearNow, 1, 1).weekday()
-    return date(yearNow, 1, 1) + timedelta(days=(weekNumber*7)-yearBeginWeekday)
+    global actYear
+    yearBeginWeekday=date(actYear, 1, 1).weekday()
+    if (yearBeginWeekday == 0):
+        return date(actYear, 1, 1) + timedelta(days=((weekNumber-1)*7))
+    else:
+        return date(actYear, 1, 1) + timedelta(days=((weekNumber)*7)-yearBeginWeekday)
 
 
 def update_month(weekNumber):
+    global actYear
     weekEndDate = week_start_date(weekNumber) + timedelta(days=6)
     month = weekEndDate.strftime('%B')
     monthButton.content.value = month
-    
-    return monthButton.content
+    yearButton.content.value = str(weekEndDate.year)
+    monthButton.page.update()
 
 
 monthButton = ft.PopupMenuButton(
@@ -269,11 +293,13 @@ monthButton = ft.PopupMenuButton(
                     ]
                 )
 
-yearButton = ft.TextButton(content=ft.Text("2023", size=18))
 
 actDialog = ft.AlertDialog(shape = ft.RoundedRectangleBorder(radius=8))
 
+actYear = date.today().isocalendar().year
 weekNumberSelected = date.today().isocalendar().week
+
+yearButton = ft.TextButton(content=ft.Text(str(actYear), size=18))
 
 emptyContainer = ft.Container(width=120, height=60, margin=3)
 actContainer = ft.Container(
