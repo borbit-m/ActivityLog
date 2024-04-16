@@ -4,6 +4,7 @@ Query.sql
 launch.json
 ActivityLog.exe
 src/data/ActivityLog.db
+src/data/SQLiteQuery.sql
 src/dist
 src/build
 src/ActivityLog.spec

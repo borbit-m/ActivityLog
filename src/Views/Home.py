@@ -51,7 +51,9 @@ def month_change(e):
 
 def today_button_click(e):
     global weekNumberSelected
+    global actYear
     weekNumberSelected = date.today().isocalendar().week
+    actYear = date.today().isocalendar().year
     e.page.controls[1] = week_activities(week_start_date(weekNumberSelected))
     update_month(weekNumberSelected)
     e.page.update()
